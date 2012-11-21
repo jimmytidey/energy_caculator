@@ -246,6 +246,13 @@ h2 {
 	padding-right:10px;
 }
 
+.mars_note { 
+	text-align:center;
+	width:120px;
+	font-size:10px;
+	margin-left:10px;
+}
+
 #settings_link { 
 	text-align:left;
 	height:26px;

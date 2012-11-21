@@ -9,6 +9,10 @@ function onResize(event) {
 //mechanical defaults 
 calculator.mass 					= 85;
 calculator.regenerative_efficientcy = 0.0;
+calculator.area = 0.5; 
+calculator.rho 	= 1.226;
+calculator.drag_coefficient = 0.5;
+calculator.rolling_coefficient = 0.004;
 
 //display settings 
 calculator.left_margin 	= 50;
@@ -143,15 +147,12 @@ calculator.calculateForces = function () {
 	var acceleration_energy = 0; 
 	
 	//drag stuff
-	calculator.area 	= 0.5; 
-	calculator.rho 	= 1.226;
-	calculator.drag_coefficient = 0.5;
+
 	var drag_force;
 	var drag_power; 
 	var drag_energy = 0;
 	
 	//rolling stuff
-	calculator.rolling_coefficient = 0.004;
 	var rolling_force;
 	var rolling_power; 
 	var rolling_energy = 0;
@@ -282,23 +283,25 @@ function onMouseUp(){
 }
 
 calculator.recalculate = function() { 
+	
 	calculator.speed_max_x = parseInt($('#distance').val());
 	calculator.mass = parseInt($('#person_mass').val()) + parseInt($('#vehicle_mass').val());
 	calculator.regenerative_efficientcy = parseInt($('#regen').val())/100;
-	calculator.rho = parseInt($('#rho').val());
-	calculator.area = parseInt($('#x-section').val());
-	calculator.drag_coefficient = parseInt($('#drag_friction').val());
-	calculator.rolling_coefficient = parseInt($('#rolling_friction').val());
+	calculator.rho = parseFloat($('#rho').val());
+	calculator.area = parseFloat($('#x-section').val());
+	console.log(calculator.area);
+	calculator.drag_coefficient = parseFloat($('#drag_friction').val());
+	calculator.rolling_coefficient = parseFloat($('#rolling_friction').val());
 	calculator.addLabels();
 	calculator.calculateForces();
 }
 
 $(document).ready(function(){ 
-	$("#settings_toggle").click(function(){
+	$("#settings_toggle ").click(function(){
 		$('#settings_tab').slideToggle();	
 	});
 
-	$("#settings_toggle a").toggle(function(){
+	$("#settings_toggle").toggle(function(){
 	     $("img", this).attr('src', "img/up_arrow.png");
 	}, function(){
 	     $("img", this).attr('src', "img/down_arrow.png");
