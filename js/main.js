@@ -221,12 +221,31 @@ calculator.calculateForces = function () {
 	
 	$('#mars_bar').html((total_energy/250));	
 	var height = (total_energy/250) * 194;
+	
+	
+	if (height > 150) { 
+		$('#mars_wrapper').css('background-image', 'url("../img/mars_small.png")');
+		height = (total_energy/250) * 47;
+	}
+	else { 
+		$('#mars_wrapper').css('background-image', 'url("../img/mars.png")');
+	}
+	
 	$('#mars_wrapper').css('height', height);
 	
 	$('#oil').html(Math.round(total_energy/7) +' mL'); 
 	
 	$('#battery').html(Math.round((total_energy*1000/970)) +' g');
 	height = (total_energy/151) * 182;
+	
+	if (height > 220) { 
+		$('#battery_wrapper').css('background-image', 'url("../img/ipad_small.png")');
+		height = (total_energy/151) * 30;
+	}
+	else { 
+		$('#battery_wrapper').css('background-image', 'url("../img/ipad.png")');
+	}
+	
 	$('#battery_wrapper').css('height', height);
 	
 }
@@ -275,11 +294,11 @@ calculator.recalculate = function() {
 }
 
 $(document).ready(function(){ 
-	$("#settings_link a").click(function(){
+	$("#settings_toggle").click(function(){
 		$('#settings_tab').slideToggle();	
 	});
 
-	$("#settings_link a").toggle(function(){
+	$("#settings_toggle a").toggle(function(){
 	     $("img", this).attr('src', "img/up_arrow.png");
 	}, function(){
 	     $("img", this).attr('src', "img/down_arrow.png");
