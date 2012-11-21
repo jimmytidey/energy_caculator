@@ -22,23 +22,124 @@
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
         
-        <div id='container' class='container_12'>
+        <div id='container'  class='container_12' >
             
-            <div class='grid_12'>
-                <h1>Last mile energy calculator</h1>
-                <div class="canvas">
-                    <canvas id="canvas-1" resize="true" width="960" height="429"></canvas>
+            <div class='grid_12' >
+                <h1>Transport / bike energy</h1>
+                
+                <h2>Speed (dragable curve...)</h2>
+                                
+                <img src='img/icons.png' id='icons' alt='icons representing unusual modes of transport' />
+                
+                <div class="canvas_container">
+                    <canvas id="canvas-1" data-paper-resize="false"></canvas>
+                </div>                
+                
+                <div id='graph_paper'></div>
+                
+                <h2 id='settings_link'>
+                    <a href='#'>
+                        <span>Settings</span>
+                        <img src='img/down_arrow.png' alt='down arrow' />
+                    </a>
+                </h2>
+                
+                <div id='settings_tab' class='grid_12'  >
+                    <div class='grid_4 alpha'>
+                        <p><label for='person_mass'>Person weight:</label><input  value='75' type='text' id='person_mass'  autocomplete="off"  />Kg</p>
+                        <p><label for='vehicle_mass'>Vehicle weight:</label> <input value='15' type='text' id='vehicle_mass'  autocomplete="off" />Kg</p>
+                        <p><label for='regen'>Regenerative Efficientcy:</label> <input id='regen' value='50' type='text'  autocomplete="off" />%</p>
+                        <p class='note'>Percentage of energy that is recaptured through regenerative breaking. Not very much!</p>
+                    </div>
+
+                    <div class='grid_4'>
+                        <p><label for='x-section'>Person cross-section:</label> <input  autocomplete="off" id='x-section' value='0.5' type='text' />m2</p>
+                        <p><label for='rho'><a href='http://en.wikipedia.org/wiki/Density_of_air' target='_blank'>Rho(air density):</a> </label><input id='rho'  autocomplete="off"   value='1.226' type='text' /></p>
+                        <p><label for='drag_friction' ><a href='http://en.wikipedia.org/wiki/Drag_coefficient'  target='_blank'>Drag Coeff:</a> </label><input  autocomplete="off" id='drag_friction'   value='0.5' type='text' /></p>
+                        <p><label for='rolling_friction' ><a href='http://en.wikipedia.org/wiki/Rolling_resistance' target='_blank'> Rolling friction Coeff:</a></label><input  autocomplete="off" id='rolling_friction'   value='0.004' type='text' /></p>
+                        <p class='note'>[Values typical for a person on a bike]</p>
+                    </div>
+                    
+                    <div class='grid_4 omega'>
+                        <p><label for='distance'>Distance:</label><input value='5' type='text'  autocomplete="off" id='distance'  />miles</p>
+                        <input type='button' id='recalculate' value='recalculate' style='width:200px' />
+                    </div>
+                </div>
+                <hr />
+            </div>
             
+            <div id='resutls' class='grid_12'>
+                <h2>Results</h2>
+                <hr />
+                <div class='grid_4 stat_legend'>
+                    <div class='result_wrapper'>
+                        <p class='result_title' >Journey Time </p>
+                        <p class='result_stat'  id='journey_time'> </p>
+                    </div> 
+                    
+                    <div class='result_wrapper'>
+                        <p class='result_title'>Total Energy<br/></p>
+                        <p class='result_stat'  id='energy_total' ></p>
+                    </div>
+                    
+                    <div class='result_wrapper'>
+                        <p class='result_title'>Overcoming wind resistance</p>
+                        <p class='result_stat'  id='energy_wind_resistance' ></p>
+                    </div>
+                    
+                    <div class='result_wrapper'>
+                        <p class='result_title'>Overcoming rolling friction</p>
+                        <p class='result_stat'  id='energy_rolling_friction'> </p>
+                    </div>
+                    
+                    <div class='result_wrapper'>
+                        <p class='result_title'>Acceleration</p>
+                        <p class='result_stat'  id='energy_acceleration' ></p>
+                    </div>
+                </div>   
+
+
+                <div class='grid_2 push_1 result result_border'>
+                    <h2>Mars Bars</h2>
+                    <h3 id='mars_bar'></h3>
+                    <div id='mars_wrapper'> </div> 
+                </div>   
+
+                <div class='grid_2 push_1 result result_border'>
+                    <h2>Petrol</h2>
+                    <h3 id='oil'></h3>
+                    <img src='img/drip.png' alt='drop of oil' />
+                </div>  
+
+                <div class='grid_2 push_1 result'>
+                    <h2>Batteries</h2>
+                    <h3 id='battery'></h3>
+                    <div id='battery_wrapper'></div>
+                </div> 
+            </div>
+            
+            
+            <div id='notes' class='grid_12 '>
+                 <h2>Notes</h2>
+                 <hr />
+                <div class='grid_8'>
+                   
+                    <h3>Mars Bars</h3>
+                    <p>This calculation assumes that the human body is 25% efficient at turning Mars bars into kinetic energy - this seems to be a common assumption. However, it is a very rough approximation. This estimate does not take into account metabolic base rate - the energy the human body consumes ever at rest.</p>
+
+                    <h3>Petrol</h3>
+                    <p>This assumes that petrol engines are 20% efficient.</p>
                 </div>
             </div>
         </div>
-
+        
+        <br class='clearfix' />
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/paper.js"></script>
-        <script type="text/paperscript" src="js/main.js" canvas="canvas-1"></script>
+        <script type="text/paperscript" src="js/main.js" data-paper-canvas="canvas-1"></script>
 
 
     </body>

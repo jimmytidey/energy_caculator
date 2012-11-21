@@ -93,27 +93,197 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+body { 
+	font-family: Clarendon-Light, 'pt_serifitalic',Georgia,serif;
+	background-color:#ecf6ff;
+	padding-bottom:20px;
+	background:url(../img/bkg.jpg);
+	background-position:top center;
+}
+
+h1 { 
+    font-size: 55px;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: -2.3px;
+    margin-top: 15px;
+}
+
+h2,h3 { 
+	font-weight:normal;
+}
+
+h2 { 
+	text-transform:uppercase;
+	font-size:20px;
+}
+
 #container { 
 	position:relative;
-	margin:10px auto;
-	border: 1px solid #b3b3b3;
-    border-radius: 4px;
-    margin: 12px auto;
+	margin:10px auto 20px auto;
+	width:960px;
+	border: 2px solid #585858;
     box-shadow: 0 1px 10px #a7a7a7, inset 0 1px 0 #fff;
-    background: #fcfcfc;
+    background: #fffffe;
+}
+
+
+#icons {
+    position: absolute;
+    right: 15px;
+    top: 37px;
+	
+}
+
+.canvas_container {
+	z-index:0;
+	width:960px;
+	height:300px;
+	background:transparent;		
+}
+
+#canvas-1 { 
+	z-index:0;
+	background:transparent;	
+}
+
+#graph_paper {
+    background-image: url("../img/graph_bkg.png");
+    height: 170px;
+    left: 61px;
+    margin-left: 51px;
+    margin-top: -300px;
+    width: 879px;
+    z-index: -10;
+}
+
+#resutls {
+	overflow:hidden;
+    margin-top: 20px;
+    z-index: 10;
+}
+	
+
+#resutls p {
+
+}	
+
+.result_title {
+	font-size:16px;
+	width:220px;
+	float:left;
+	margin-top:0px;
+}
+
+.result_stat { 
+	font-size:16px;
+	width:80px;
+	float:left;
+	margin-top:0px;
+	font-weight:bold;
+}
+
+.result_wrapper { 
+	clear:both;
+	height:70px;
 }
 
 
 
+#energy_total { 
+	font-weight:bold;
+}
+
+#energy { 
+   
+    margin-top: 20px;
+    z-index: 10;	
+}
+
+#energy h2, #energy h3{ 
+	text-align:center;
+}
 
 
 
+#mars_wrapper { 
+	overflow:hidden;
+	height:0px;
+	background-image:url('../img/mars.png');
+	width:64px;
+	background-repeat:repeat-y;
+	margin-left:40px;
+}
 
+#oil_wrapper { 
+	overflow:hidden;
+	height:0px;
+	background-image:url('../img/whiskey.png');
+	width:77px;
+	background-repeat:repeat-y;
+	margin-left:40px;
+}
 
+#battery_wrapper { 
+	overflow:hidden;
+	height:0px;
+	background-image:url('../img/ipad.png');
+	background-repeat:repeat-y;
+	margin-left:0px;
+}
 
+.result { 
+	text-align:center;
+	height:340px;
+}
 
+.result_border { 
+	border-right:1px solid #ccc;
+	padding-right:10px;
+}
 
+#settings_link { 
+	text-align:left;
+	height:26px;
+	margin-top:30px;
+}
 
+#settings_link a { 
+    background-position: center 27px;
+    background-repeat:no-repeat;
+    color: black;
+    display: block;
+    height: 41px;
+    text-decoration: none;
+}
+
+#settings_tab { 
+  	display:none;
+	z-index:100;
+}
+
+#settings_tab input { 
+	width:50px;
+	
+}
+
+#settings_tab label { 
+	width:200px;
+	float:left;
+}
+
+#settings_tab input{
+	margin-right:2px;
+}
+
+.note { 
+	font-size:12px;
+	width:200px;
+}
+
+#recalculate { 
+	width:200px;
+}
 
 /* ==========================================================================
    Helper classes
