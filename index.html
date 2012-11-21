@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/960.css">
+        <link type="text/css" rel="stylesheet" href="http://fast.fonts.com/cssapi/f88a7ae2-3061-401d-a633-bab766968b15.css"/>
         <script src="js/vendor/modernizr-2.6.1.min.js"></script>
     </head>
     <body>
@@ -48,7 +49,7 @@
                     <div class='grid_4 alpha'>
                         <p><label for='person_mass'>Person weight:</label><input  value='75' type='text' id='person_mass'  autocomplete="off"  />Kg</p>
                         <p><label for='vehicle_mass'>Vehicle weight:</label> <input value='15' type='text' id='vehicle_mass'  autocomplete="off" />Kg</p>
-                        <p><label for='regen'>Regenerative Efficientcy:</label> <input id='regen' value='50' type='text'  autocomplete="off" />%</p>
+                        <p><label for='regen'>Regenerative Efficientcy:</label> <input id='regen' value='0' type='text'  autocomplete="off" />%</p>
                         <p class='note'>Percentage of energy that is recaptured through regenerative breaking. Not very much!</p>
                     </div>
 
@@ -128,8 +129,27 @@
                     <p>This calculation assumes that the human body is 25% efficient at turning Mars bars into kinetic energy - this seems to be a common assumption. However, it is a very rough approximation. This estimate does not take into account metabolic base rate - the energy the human body consumes ever at rest.</p>
 
                     <h3>Petrol</h3>
-                    <p>This assumes that petrol engines are 20% efficient.</p>
+                    <p>This assumes that petrol engines that is 20% efficient.</p>
+                    
+                    <h3>iPads</h3>
+                    <p>The weight shown is the weight of lithium ion batteries required to supply the total energy, using batteries that have the same performance as the iPad.</p>
+                    <p>The graphic shows the number of iPads this is equivalent to.</p>
+                    <p>It should be noted that iPads have an incredibly high performance battery - it <a href='http://www.ifixit.com/Answers/View/12289/How+much+do+the+individual+iPad+component+weigh'>weighs 148g</a> and <a href='http://www.zdnet.com/blog/hardware/new-ipads-most-revolutionary-feature-is-its-battery/18985'>and has an output of 42 watt hours</a>. This gives it a higher energy density than the best <a href='http://en.wikipedia.org/wiki/Lithium-ion_battery'>lithium ion batteries on Wikipeia</a> - about 1 MJ/kg.</p>
+                    <p>Calculation also assumes 95% efficient electric motors - this is fairly typical performance.</p>
                 </div>
+            </div>
+            
+            <div id='credits' class='grid_12 '>
+                 <h2>Credits</h2>
+                 <hr />
+                <div class='grid_8'>
+                <p>The icons are from The Noun Project, with the bike and the unicycle coming from <a href='http://thenounproject.com/Connor%20Cesa/#'>Connor Cesa</a></p>
+                
+
+                
+                 
+                 
+                </div> 
             </div>
         </div>
         
