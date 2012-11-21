@@ -7,7 +7,7 @@ function onResize(event) {
 }
 
 //mechanical defaults 
-calculator.mass 					= 90;
+calculator.mass 					= 85;
 calculator.regenerative_efficientcy = 0.0;
 
 //display settings 
@@ -262,6 +262,18 @@ function onMouseUp(){
 	calculator.calculateForces(); 
 }
 
+calculator.recalculate = function() { 
+	calculator.speed_max_x = parseInt($('#distance').val());
+	calculator.mass = parseInt($('#person_mass').val()) + parseInt($('#vehicle_mass').val());
+	calculator.regenerative_efficientcy = parseInt($('#regen').val())/100;
+	calculator.rho = parseInt($('#rho').val());
+	calculator.area = parseInt($('#x-section').val());
+	calculator.drag_coefficient = parseInt($('#drag_friction').val());
+	calculator.rolling_coefficient = parseInt($('#rolling_friction').val());
+	calculator.addLabels();
+	calculator.calculateForces();
+}
+
 $(document).ready(function(){ 
 	$("#settings_link a").click(function(){
 		$('#settings_tab').slideToggle();	
@@ -274,15 +286,36 @@ $(document).ready(function(){
 	});
 	
 	$('#recalculate').click(function(){ 
-		calculator.speed_max_x = parseInt($('#distance').val());
-		calculator.mass = parseInt($('#person_mass').val()) + parseInt($('#vehicle_mass').val());
-		calculator.regenerative_efficientcy = parseInt($('#regen').val())/100;
-		calculator.rho = parseInt($('#rho').val());
-		calculator.drag_coefficient = parseInt($('#drag_friction').val());
-		calculator.rolling_coefficient = parseInt($('#rolling_friction').val());
-		calculator.addLabels();
-		calculator.calculateForces();
+		calculator.recalculate();
 	})
+	
+	$("input:radio[name=defaults]").click(function() {
+		console.log('hi');
+	    var value = $(this).val();
+		if (value == 'car') { 
+			$('#vehicle_mass').val('1500');
+			$('#rolling_friction').val('0.01');
+			$('#x-section').val('2.5');
+			$('#drag_friction').val('0.35');
+			$('#regen').val(0)
+		}
+		if (value == 'bike') { 
+			$('#vehicle_mass').val('10');
+			$('#rolling_friction').val('0.004');
+			$('#x-section').val('0.5');
+			$('#drag_friction').val('0.5');
+			$('#regen').val(0)			
+		}
+		if (value == 'boosted') { 
+			$('#vehicle_mass').val('3');
+			$('#rolling_friction').val('0.004');
+			$('#x-section').val('0.4');
+			$('#drag_friction').val('0.5');
+			$('#regen').val(90);			
+		}		
+		calculator.recalculate();	
+		
+	});
 
 	//... and init 
 	calculator.drawGraph();

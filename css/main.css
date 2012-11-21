@@ -251,12 +251,13 @@ h2 {
 	height:26px;
 	margin-top:30px;
 }
+#settings_link h2{
+	width:100px;
+	display:inline;
+}	 
 
 #settings_link a { 
-    background-position: center 27px;
-    background-repeat:no-repeat;
     color: black;
-    display: block;
     height: 41px;
     text-decoration: none;
 }
@@ -287,6 +288,14 @@ h2 {
 
 #recalculate { 
 	width:200px;
+}
+
+#defaults label, #defaults input, #defaults  { 
+	display:inline;
+}
+
+#defaults label { 
+	margin:0px 5px;
 }
 
 /* ==========================================================================

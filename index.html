@@ -29,9 +29,9 @@
             <div class='grid_12' >
                 <h1>Transport / bike energy</h1>
                 
-                <p>I thought <a href='http://www.boostedboards.com/'>Boosted Boards</a> electric skateboard looked implausible, I built this calculator to work it out. <a href='http://jimmytidey.co.uk/blog/boosted-board-vapour-hardware/'>I was wrong.</a> </p>
+                <p>The car is a terrible way of making short urban journeys. The calculator below lets you compare it with other solutions.</p>
                 
-                <h2>Speed (dragable curve...)</h2>
+                <h2>Speed (draggable curve...)</h2>
                                 
                 <img src='img/icons.png' id='icons' alt='icons representing unusual modes of transport' />
                 
@@ -41,27 +41,31 @@
                 
                 <div id='graph_paper'></div>
                 
-                <h2 id='settings_link'>
+                <div id='settings_link'>
                     <a href='#'>
-                        Settings
-                        <img src='img/down_arrow.png' alt='down arrow' />
+                        <h2>Settings</h2>
+                        <img src='img/down_arrow.png' alt='down arrow' /> 
                     </a>
-                </h2>
+                    <div id='defaults'>
+                        <label for='bike_default'>Bike</label><input type='radio' autocomplete="off"  name='defaults' value='bike' checked id='bike_default' />
+                        <label for='car_default'>Car</label><input type='radio' autocomplete="off"  name='defaults' value='car' id='car_default' />
+                        <label for='car_default'><a href='http://boostedboards.com/'>Boosted Board</a></label><input type='radio' autocomplete="off"  name='defaults' value='boosted' id='boosted_default' />
+                    </div>
+                </div>
                 
                 <div id='settings_tab' class='grid_12'  >
                     <div class='grid_4 alpha'>
                         <p><label for='person_mass'>Person weight:</label><input  value='75' type='text' id='person_mass'  autocomplete="off"  />Kg</p>
-                        <p><label for='vehicle_mass'>Vehicle weight:</label> <input value='15' type='text' id='vehicle_mass'  autocomplete="off" />Kg</p>
+                        <p><label for='vehicle_mass'>Vehicle weight:</label> <input value='10' type='text' id='vehicle_mass'  autocomplete="off" />Kg</p>
                         <p><label for='regen'>Regenerative Efficientcy:</label> <input id='regen' value='0' type='text'  autocomplete="off" />%</p>
                         <p class='note'>Percentage of energy that is recaptured through regenerative breaking. Not very much!</p>
                     </div>
 
                     <div class='grid_4'>
-                        <p><label for='x-section'>Person cross-section:</label> <input  autocomplete="off" id='x-section' value='0.5' type='text' />m2</p>
+                        <p><label for='x-section'>Cross-sectional area:</label> <input  autocomplete="off" id='x-section' value='0.5' type='text' />m2</p>
                         <p><label for='rho'><a href='http://en.wikipedia.org/wiki/Density_of_air' target='_blank'>Rho(air density):</a> </label><input id='rho'  autocomplete="off"   value='1.226' type='text' /></p>
                         <p><label for='drag_friction' ><a href='http://en.wikipedia.org/wiki/Drag_coefficient'  target='_blank'>Drag Coeff:</a> </label><input  autocomplete="off" id='drag_friction'   value='0.5' type='text' /></p>
                         <p><label for='rolling_friction' ><a href='http://en.wikipedia.org/wiki/Rolling_resistance' target='_blank'> Rolling friction Coeff:</a></label><input  autocomplete="off" id='rolling_friction'   value='0.004' type='text' /></p>
-                        <p class='note'>[Values typical for a person on a bike]</p>
                     </div>
                     
                     <div class='grid_4 omega'>
@@ -126,7 +130,7 @@
             <div id='notes' class='grid_12 '>
                  <h2>Notes &amp; about</h2>
                  <hr />
-                <div class='grid_6'>
+                <div class='grid_5'>
                    
                     <h3>Mars Bars</h3>
                     <p>This calculation assumes that the human body is 25% efficient at turning Mars bars into kinetic energy - this seems to be a common assumption. However, it is a very rough approximation. This estimate does not take into account metabolic base rate - the energy the human body consumes ever at rest.</p>
@@ -141,9 +145,11 @@
                     <p>Calculation also assumes 95% efficient electric motors - this is fairly typical performance.</p>
                 </div>
                 
-                <div class='grid_6'>
+                <div class='grid_5 push_1'>
                     <h3>About</h3>
-                    
+                    <p>You can get the source code from <a href='https://github.com/jimmytidey/energy_caculator'>Github</a></p>
+                    <p>There are a lot of ideas about "last-mile" transport - solutions for short urban journeys, it's amazed me to see how little energy is potentially required to make those journeys.</p> 
+                    <p>One thing that really stands out is how energy inefficient it is to use a car for this kind of transport in nearly every circumstance.</p>
                 </div>    
                 
                 
