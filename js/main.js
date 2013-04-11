@@ -1,3 +1,5 @@
+
+
 calculator = {};
 
 //control canvass -- redrawing doesn't seem to be working right
@@ -5,6 +7,8 @@ paper.view.viewSize = [940, 190];
 function onResize(event) {
 	paper.view.viewSize = [940, 190];
 }
+
+
 
 //mechanical defaults 
 calculator.mass 					= 85;
@@ -52,8 +56,6 @@ calculator.drawGraph = function() {
 	y_axis.strokeColor = 'black';
 	y_axis.add(new Point(calculator.left_margin, 0));
 	y_axis.add(new Point(calculator.left_margin, calculator.speed_height));
-	
-
 }
 
 calculator.addLabels = function () { 
@@ -296,7 +298,8 @@ calculator.recalculate = function() {
 	calculator.calculateForces();
 }
 
-$(document).ready(function(){ 
+$(document).ready(function(){   
+    console.log('loaded');
 	$("#settings_toggle ").click(function(){
 		$('#settings_tab').slideToggle();	
 	});
@@ -343,6 +346,7 @@ $(document).ready(function(){
 	calculator.drawGraph();
 	calculator.addLabels();
 	calculator.calculateForces();
+	window.setTimeout("calculator.drawGraph()",1000);
 })
 
 
