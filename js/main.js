@@ -343,10 +343,10 @@ $(document).ready(function(){
 	});
 
 	//... and init 
-
+	calculator.drawGraph();
 	calculator.addLabels();
 	calculator.calculateForces();
-	window.setTimeout("calculator.drawGraph()",1000);
+	//window.setTimeout("calculator.drawGraph()",1000);
 })
 
 
